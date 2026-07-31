@@ -1,0 +1,57 @@
+name: Publish VS Code extension
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/publish-extension.yml"
+      - "extension/**"
+      - "skill/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-vscode-extension
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: extension
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: extension/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile extension
+        run: npm run compile
+
+      - name: Package extension
+        run: npm run package -- --out spark-perf-optimization.vsix
+
+      - name: Publish extension
+        run: npx vsce publish --packagePath spark-perf-optimization.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+
+      - name: Upload extension package
+        uses: actions/upload-artifact@v4
+        with:
+          name: spark-perf-optimization-vsix
+          path: extension/spark-perf-optimization.vsix
+          if-no-files-found: error
