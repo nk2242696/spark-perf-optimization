@@ -2,7 +2,7 @@
   "name": "spark-perf-optimization",
   "displayName": "Spark Performance Optimization",
   "description": "Install the Spark performance Copilot skill and analyze Spark event logs locally.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "nikhil-kumar",
   "icon": "icon.png",
   "license": "MIT",

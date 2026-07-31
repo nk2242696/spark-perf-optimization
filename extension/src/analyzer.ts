@@ -45,10 +45,14 @@ export async function openCliTerminal(context: vscode.ExtensionContext): Promise
   if (!skillRoot) {
     return;
   }
-  const terminal = vscode.window.createTerminal({ name: "Spark Perf CLI" });
-  const analyzer = path.join(skillRoot, "scripts", "spark_eventlog_analyze.py");
+  const terminal = vscode.window.createTerminal({
+    name: "Spark Perf CLI",
+    cwd: vscode.Uri.file(skillRoot),
+  });
+  const analyzer = path.join("scripts", "spark_eventlog_analyze.py");
   terminal.show();
-  terminal.sendText(`${quote(configuredPython())} ${quote(analyzer)} --help`);
+  const command = `${quote(configuredPython())} ${quote(analyzer)} --help`;
+  terminal.sendText(process.platform === "win32" ? `& ${command}` : command);
 }
 
 async function ensureSkill(context: vscode.ExtensionContext): Promise<string | undefined> {
