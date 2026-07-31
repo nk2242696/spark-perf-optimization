@@ -1,0 +1,20 @@
+{
+  "name": "spark-perf-pptx-generator",
+  "version": "1.0.0",
+  "description": "PowerPoint generator for Spark performance optimization reports",
+  "main": "build_perf_pptx.js",
+  "scripts": {
+    "generate": "node build_perf_pptx.js"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0"
+  },
+  "keywords": [
+    "spark",
+    "performance",
+    "powerpoint",
+    "pptx"
+  ],
+  "author": "",
+  "license": "MIT"
+}

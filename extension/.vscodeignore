@@ -1,0 +1,9 @@
+.vscode/**
+src/**
+scripts/**
+tsconfig.json
+**/*.map
+**/__pycache__/**
+**/*.py[cod]
+node_modules/**
+!node_modules/.package-lock.json

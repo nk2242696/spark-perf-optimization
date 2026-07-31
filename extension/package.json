@@ -1,0 +1,87 @@
+{
+  "name": "spark-perf-optimization",
+  "displayName": "Spark Performance Optimization",
+  "description": "Install the Spark performance Copilot skill and analyze Spark event logs locally.",
+  "version": "0.1.0",
+  "publisher": "nikhil-kumar",
+  "license": "MIT",
+  "homepage": "https://github.com/nk2242696/spark-perf-optimization#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nk2242696/spark-perf-optimization.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nk2242696/spark-perf-optimization/issues"
+  },
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "spark",
+    "synapse",
+    "databricks",
+    "eventlog",
+    "performance",
+    "pyspark",
+    "copilot"
+  ],
+  "galleryBanner": {
+    "color": "#172033",
+    "theme": "dark"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sparkPerf.installSkill",
+        "title": "Install/Update Spark Performance Skill",
+        "category": "Spark Perf"
+      },
+      {
+        "command": "sparkPerf.uninstallSkill",
+        "title": "Uninstall Spark Performance Skill",
+        "category": "Spark Perf"
+      },
+      {
+        "command": "sparkPerf.analyzeEventLog",
+        "title": "Analyze Spark Event Log",
+        "category": "Spark Perf"
+      },
+      {
+        "command": "sparkPerf.openCliTerminal",
+        "title": "Open CLI Terminal",
+        "category": "Spark Perf"
+      }
+    ],
+    "configuration": {
+      "title": "Spark Performance Optimization",
+      "properties": {
+        "sparkPerf.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional Python 3.10+ executable. Leave empty for automatic discovery."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "clean": "node ./scripts/clean.mjs",
+    "bundle:skill": "node ./scripts/copy-skill.mjs",
+    "compile": "npm run bundle:skill && tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run clean && npm run compile",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.96.0",
+    "@vscode/vsce": "^3.2.1",
+    "typescript": "^5.7.2"
+  }
+}
