@@ -1,5 +1,9 @@
 # Spark Performance Optimization
 
+<p align="center">
+	<img src="icon.png" alt="Spark Performance Optimization" width="192">
+</p>
+
 Analyze Apache Spark event logs locally and install a guided GitHub Copilot skill for iterative performance work in OSS Spark, Azure Synapse, and Databricks.
 
 ## Features

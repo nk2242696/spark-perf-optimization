@@ -1,5 +1,9 @@
 # Spark Performance Optimization
 
+<p align="center">
+	<img src="extension/icon.png" alt="Spark Performance Optimization" width="192">
+</p>
+
 Local-first Apache Spark performance analysis for OSS Spark, Azure Synapse, and Databricks.
 
 This repository packages three pieces as one distributable tool:
@@ -42,4 +46,4 @@ Spark event logs may contain application names, paths, SQL plans, schema names, 
 
 The local analyzer, archive support, skill installer, VS Code commands, tests, and VSIX packaging are implemented. Public skill content uses generic or synthetic examples; identifiable case studies belong in the ignored private overlay described in `PRIVATE_CASE_STUDIES.md`.
 
-The extension manifest targets the intended public repository at `https://github.com/nk2242696/spark-perf-optimization`. Before Marketplace publication, create that repository, confirm that the `nikhil-kumar` Marketplace publisher exists and is accessible, enable private security reporting, and optionally add an owned 128×128 or larger PNG icon.
+The public repository and packaged VS Code extension are available at `https://github.com/nk2242696/spark-perf-optimization`.

@@ -4,6 +4,7 @@
   "description": "Install the Spark performance Copilot skill and analyze Spark event logs locally.",
   "version": "0.1.0",
   "publisher": "nikhil-kumar",
+  "icon": "icon.png",
   "license": "MIT",
   "homepage": "https://github.com/nk2242696/spark-perf-optimization#readme",
   "repository": {
